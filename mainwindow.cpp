@@ -91,9 +91,11 @@ void MainWindow::on_actionEnregistrer_au_format_TXT_triggered()
     out << "Changelog : \n\n";
     for (int i = 0; i < modelList->size(); i++) {
         if (ui->file_cb->itemText(i).compare("default") != 0)
-            out << ui->file_cb->itemText(i) << " : \n";
-        for (QString element : modelList->at(i)->stringList())
-            out << "\t" << element << "\n";
+            out << "\t" << ui->file_cb->itemText(i) << " : \n";
+        for (QString element : modelList->at(i)->stringList()) {
+            out << ((ui->file_cb->itemText(i).compare("default") != 0) ? "\t\t" : "\t") << element
+                << "\n";
+        }
         progressBar->setValue(100.0 / i);
     }
 
