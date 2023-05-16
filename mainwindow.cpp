@@ -23,6 +23,7 @@ void MainWindow::on_send_btn_clicked()
     if (this->ui->element_tf->text().isEmpty())
         return;
     addElement(getStatus() + " " + this->ui->element_tf->text());
+    ui->element_tf->setText("");
 }
 
 void MainWindow::on_elementStatus_cb_currentIndexChanged(int index)
@@ -97,4 +98,5 @@ void MainWindow::on_filename_btn_clicked()
     modelList->append(new ElementModel(this));
     model = modelList->last();
     ui->list_element->setModel(model);
+    ui->filename_tf->setText("");
 }
