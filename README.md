@@ -12,3 +12,5 @@ Pour l'utiliser, vous devez simplement écrire dans la barre du bas vos modifica
 ## Crédit
 
 Vous pouvez utiliser librement ce logiciel et le repartager en n'oubliant pas le lien de mon github.
+
+https://github.com/Dr4kiel
