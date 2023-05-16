@@ -63,7 +63,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="filename_tf"/>
+        <widget class="TextfieldCustom" name="filename_tf"/>
        </item>
        <item>
         <widget class="QPushButton" name="filename_btn">
@@ -118,7 +118,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="element_tf"/>
+        <widget class="TextfieldCustom" name="element_tf"/>
        </item>
        <item>
         <widget class="QPushButton" name="send_btn">
