@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>500</width>
-    <height>500</height>
+    <height>521</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,6 +151,11 @@
     <addaction name="actionEnregistrer_au_format_TXT"/>
    </widget>
    <addaction name="menuFichier"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="acceptDrops">
+    <bool>true</bool>
+   </property>
   </widget>
   <action name="actionEnregistrer_au_format_TXT">
    <property name="text">

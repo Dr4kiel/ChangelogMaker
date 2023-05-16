@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMainWindow>
+#include <QProgressBar>
 #include <QStringListModel>
 #include <QTextStream>
 
@@ -30,6 +31,7 @@ public:
     void addElement(QString element);
     void setStatus(QString elem);
     QString getStatus();
+    void setProgressBarVisible(bool status);
 
 private slots:
 
@@ -48,5 +50,6 @@ private:
     QString status = "+";
     ElementModel *model;
     QVector<ElementModel *> *modelList;
+    QProgressBar *progressBar;
 };
 #endif // MAINWINDOW_H
