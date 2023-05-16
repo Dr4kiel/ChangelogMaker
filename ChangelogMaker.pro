@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     elementmodel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    textfieldcustom.cpp
 
 HEADERS += \
     elementmodel.h \
-    mainwindow.h
+    mainwindow.h \
+    textfieldcustom.h
 
 FORMS += \
     mainwindow.ui

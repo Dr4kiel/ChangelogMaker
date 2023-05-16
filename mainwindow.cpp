@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "elementmodel.h"
+#include "textfieldcustom.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -12,12 +13,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     this->ui->list_element->setModel(this->model);
     this->setWindowTitle("ChangelogMaker V.1.0");
 
-    // progress abr
+    // progress bar
     progressBar = new QProgressBar(ui->statusBar);
     progressBar->setAlignment(Qt::AlignRight);
     progressBar->setMaximumSize(180, 19);
     ui->statusBar->addWidget(progressBar);
     progressBar->setVisible(false);
+
+    connect(ui->filename_tf, SIGNAL(submitted()), this, SLOT(on_filename_btn_clicked()));
+    connect(ui->element_tf, SIGNAL(submitted()), this, SLOT(on_send_btn_clicked()));
 }
 
 MainWindow::~MainWindow()

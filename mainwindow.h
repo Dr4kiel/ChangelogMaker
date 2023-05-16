@@ -3,6 +3,7 @@
 
 #include <QFile>
 #include <QFileDialog>
+#include <QKeyEvent>
 #include <QMainWindow>
 #include <QProgressBar>
 #include <QStringListModel>
