@@ -99,4 +99,5 @@ void MainWindow::on_filename_btn_clicked()
     model = modelList->last();
     ui->list_element->setModel(model);
     ui->filename_tf->setText("");
+    ui->file_cb->setCurrentIndex(modelList->size() - 1);
 }
