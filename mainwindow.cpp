@@ -5,12 +5,19 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setFixedSize(QSize(500, 500));
+    this->setFixedSize(QSize(500, 520));
     this->model = new ElementModel(this);
     this->modelList = new QVector<ElementModel *>;
     this->modelList->append(this->model);
     this->ui->list_element->setModel(this->model);
     this->setWindowTitle("ChangelogMaker V.1.0");
+
+    // progress abr
+    progressBar = new QProgressBar(ui->statusBar);
+    progressBar->setAlignment(Qt::AlignRight);
+    progressBar->setMaximumSize(180, 19);
+    ui->statusBar->addWidget(progressBar);
+    progressBar->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -70,6 +77,9 @@ void MainWindow::on_actionEnregistrer_au_format_TXT_triggered()
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
 
+    setProgressBarVisible(true);
+    progressBar->setValue(0);
+
     QTextStream out(&file);
 
     out << ui->title_tf->text() + "\n";
@@ -80,9 +90,12 @@ void MainWindow::on_actionEnregistrer_au_format_TXT_triggered()
             out << ui->file_cb->itemText(i) << " : \n";
         for (QString element : modelList->at(i)->stringList())
             out << "\t" << element << "\n";
+        progressBar->setValue(100.0 / i);
     }
 
     file.close();
+    progressBar->setValue(100);
+    setProgressBarVisible(false);
 }
 
 void MainWindow::on_file_cb_currentIndexChanged(int index)
@@ -101,4 +114,9 @@ void MainWindow::on_filename_btn_clicked()
     ui->list_element->setModel(model);
     ui->filename_tf->setText("");
     ui->file_cb->setCurrentIndex(modelList->size() - 1);
+}
+
+void MainWindow::setProgressBarVisible(bool status)
+{
+    progressBar->setVisible(status);
 }
