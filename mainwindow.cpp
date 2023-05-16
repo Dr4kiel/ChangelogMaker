@@ -76,7 +76,8 @@ void MainWindow::on_actionEnregistrer_au_format_TXT_triggered()
     out << "\n";
     out << "Changelog : \n\n";
     for (int i = 0; i < modelList->size(); i++) {
-        out << ui->file_cb->itemText(i) << " : \n";
+        if (ui->file_cb->itemText(i).compare("default") != 0)
+            out << ui->file_cb->itemText(i) << " : \n";
         for (QString element : modelList->at(i)->stringList())
             out << "\t" << element << "\n";
     }
